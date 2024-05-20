@@ -14,6 +14,8 @@
 import { locationsArray } from "./data/locationData.js";
 import { parkTypesArray } from "./data/parkTypeData.js";
 import { nationalParksArray } from "./data/nationalParkData.js";
+import { showDropdown } from "./helpers/dropDownHelper.js";
+import { searchData } from "./helpers/searchHelper.js";
 /*
         You can remove the following console.log() lines.
         They are here to verify that we have access to the data
@@ -23,28 +25,64 @@ import { nationalParksArray } from "./data/nationalParkData.js";
 //log the locationsArray to the console (scripts/data/locationData.js)
 // locatoin or type radio btn logic
 const search = document.querySelector("#radioBtn");
-//TODO take in value depends on dropdown
-// const state = search.childNodes[1].childNodes[3].value;
+
+let state = search.childNodes[1].childNodes[3].value;
 
 // search function
-function findByState(locationsArray) {
+function findByState(locationsArray, nationalParksArray) {
   const byLocation = document.querySelector("#byLocation");
+
   let display = true;
-  //   console.log(locationsArray);
-  //   console.log(parkTypesArray);
-  showDropdown(byLocation, display, locationsArray);
+  // template logic for dropdown
+  if (locationsArray.length > 0 && nationalParksArray.length > 0) {
+    showDropdown(byLocation, display, locationsArray);
+    const selected = document.querySelector("select");
+
+    selected.addEventListener("change", (event) => {
+      const targetedValue = event.target.value;
+      const results = searchData(nationalParksArray, targetedValue);
+      console.log(results);
+    });
+  } else {
+    ("");
+  }
 }
-findByState(locationsArray);
-function showDropdown(child, display, arr) {
-  const dropdown = document.querySelector("#dropDown");
-  const clon = dropdown.content.cloneNode(true);
-  arr.forEach(function (item) {
-    const option = document.createElement("option");
-    option.textContent = item;
-    option.value = item;
-    clon.querySelector("select").appendChild(option);
+// empty first
+if (state === "location") {
+  state = "";
+  findByState(locationsArray, nationalParksArray);
+} else if (state === "parkType") {
+  state = "";
+  findByType(parkTypesArray, nationalParksArray);
+} else {
+  console.log("error");
+}
+// populate
+search.addEventListener("change", (event) => {
+  if (state === "location") {
+    state = "";
+    findByState(locationsArray, nationalParksArray);
+  } else if (state === "parkType") {
+    state = "";
+    findByType(parkTypesArray, nationalParksArray);
+  } else {
+    console.log("error");
+  }
+});
+
+// =============================
+
+function findByType(parkTypesArray, nationalParksArray) {
+  const byType = document.querySelector("#byParkType");
+  let display = true;
+  const selected2 = document.querySelector("select");
+
+  selected2.addEventListener("change", (event) => {
+    console.log("find by type");
+    const targetedValue = event.target.value;
+    // const results = searchData(nationalParksArray, targetedValue);
+    // console.log(results);
   });
-  document.body.appendChild(clon);
 }
 
 //log the parkTypesArray to the console (scripts/data/parkTypeData.js)
