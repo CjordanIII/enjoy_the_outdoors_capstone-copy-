@@ -22,7 +22,7 @@ function findByState(
   locationsArray,
   nationalParksArray,
   location,
-  row,
+  headerRow,
   tableBody
 ) {
   // template logic for dropdown
@@ -31,16 +31,23 @@ function findByState(
   location.addEventListener("change", (event) => {
     const targetedValue = event.target.value;
     const result = searchData(nationalParksArray, targetedValue, "location");
-    displayState(result, row, tableBody);
+    displayState(result, headerRow, tableBody);
   });
 }
-function findByType(parkTypesArray, nationalParksArray, parkType) {
+function findByType(
+  parkTypesArray,
+  nationalParksArray,
+  parkType,
+  headerRow,
+  tableBody
+) {
   parkTypesArray.unshift("select by park type");
   let result;
   showDropdown(parkType, parkTypesArray);
   parkType.addEventListener("change", (event) => {
     const targetedValue = event.target.value;
     result = searchData(nationalParksArray, targetedValue, "byType");
+    displayState(result, headerRow, tableBody);
   });
   return result;
 }

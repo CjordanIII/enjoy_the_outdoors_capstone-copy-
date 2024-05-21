@@ -1,13 +1,14 @@
-function displayState(result, headerRow, tableBody) {
+function displayState(result, tableBody) {
   result.forEach((value) => {
     // Create a new table row
+
     const row = document.createElement("tr");
 
     // Create and populate table cells
     const cell1 = document.createElement("td");
     cell1.textContent = value.LocationID;
     const cell2 = document.createElement("td");
-    cell2.textContent = value.Name;
+    cell2.textContent = value.LocationName;
     const cell3 = document.createElement("td");
     cell3.textContent = value.Address;
     const cell4 = document.createElement("td");

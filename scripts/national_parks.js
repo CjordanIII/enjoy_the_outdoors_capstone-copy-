@@ -25,7 +25,7 @@ const locationInput = document.querySelector("#location");
 const table = document.querySelector("#resultsTitle");
 const tableBody = document.querySelector("#resultsBody");
 //insatiate
-let row = table.insertRow(-1);
+
 let headerRow = table.insertRow(-1);
 const headerCell1 = headerRow.insertCell(0);
 const headerCell2 = headerRow.insertCell(1);
@@ -39,39 +39,53 @@ const stateDataOne = findByState(
   locationsArray,
   nationalParksArray,
   location,
-  headerRow,
   tableBody
 );
 
 // toggle between radio btns from location ===> type
 parkTypeInput.addEventListener("change", (e) => {
+  tableBody.innerHTML = "";
   const value = e.target.value;
+
   parkType.classList.remove("d-none");
   parkType.classList.add("d-block");
   location.classList.add("d-none");
   location.classList.remove("d-block");
-  let row = table.insertRow(-1);
-  const cell1 = row.insertCell();
-  const cell2 = row.insertCell();
-  const cell3 = row.insertCell();
-  const cell4 = row.insertCell();
-  cell1.textContent = "Location Id";
-  cell2.textContent = "Name";
-  cell3.textContent = "Address";
-  cell4.textContent = "URL";
+  let headerRow = table.insertRow(-1);
+  const headerCell1 = headerRow.insertCell(0);
+  const headerCell2 = headerRow.insertCell(1);
+  const headerCell3 = headerRow.insertCell(2);
+  const headerCell4 = headerRow.insertCell(3);
 
-  findByType(parkTypesArray, nationalParksArray, parkType, row);
+  findByType(
+    parkTypesArray,
+    nationalParksArray,
+    parkType,
+    headerRow,
+    tableBody
+  );
 });
 // toggle between radio btns from type==>location
 locationInput.addEventListener("change", (e) => {
   const value = e.target.value;
-
+  tableBody.innerHTML = "";
   // Show location dropdown and hide parkType dropdown
   location.classList.remove("d-none");
   location.classList.add("d-block");
   parkType.classList.add("d-none");
   parkType.classList.remove("d-block");
-  findByState(locationsArray, nationalParksArray, location);
+  let headerRow = table.insertRow(-1);
+  const headerCell1 = headerRow.insertCell(0);
+  const headerCell2 = headerRow.insertCell(1);
+  const headerCell3 = headerRow.insertCell(2);
+  const headerCell4 = headerRow.insertCell(3);
+  findByState(
+    locationsArray,
+    nationalParksArray,
+    location,
+    headerRow,
+    tableBody
+  );
 
   //   let row = table.insertRow(-1);
   //   const cell1 = row.insertCell();
@@ -82,11 +96,4 @@ locationInput.addEventListener("change", (e) => {
   //   cell2.textContent = "Name";
   //   cell3.textContent = "Address";
   //   cell4.textContent = "URL";
-
-  //   data.forEach((row, cell) => {
-  //     console.log(row, cell);
-  //     // row = tableBody.insertRow();
-  //     // let cell = row.insertCell();
-  //     //     cell.textContent = "place";
-  //   });
 });
