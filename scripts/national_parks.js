@@ -44,7 +44,6 @@ const stateDataOne = findByState(
 
 // toggle between radio btns from location ===> type
 parkTypeInput.addEventListener("change", (e) => {
-  tableBody.innerHTML = "";
   const value = e.target.value;
 
   parkType.classList.remove("d-none");
@@ -64,21 +63,22 @@ parkTypeInput.addEventListener("change", (e) => {
     headerRow,
     tableBody
   );
+  tableBody.innerHTML = "";
 });
 // toggle between radio btns from type==>location
 locationInput.addEventListener("change", (e) => {
   const value = e.target.value;
-  tableBody.innerHTML = "";
+
   // Show location dropdown and hide parkType dropdown
   location.classList.remove("d-none");
   location.classList.add("d-block");
   parkType.classList.add("d-none");
   parkType.classList.remove("d-block");
   let headerRow = table.insertRow(-1);
-  const headerCell1 = headerRow.insertCell(0);
-  const headerCell2 = headerRow.insertCell(1);
-  const headerCell3 = headerRow.insertCell(2);
-  const headerCell4 = headerRow.insertCell(3);
+  // const headerCell1 = headerRow.insertCell(0);
+  // const headerCell2 = headerRow.insertCell(1);
+  // const headerCell3 = headerRow.insertCell(2);
+  // const headerCell4 = headerRow.insertCell(3);
   findByState(
     locationsArray,
     nationalParksArray,
@@ -86,14 +86,5 @@ locationInput.addEventListener("change", (e) => {
     headerRow,
     tableBody
   );
-
-  //   let row = table.insertRow(-1);
-  //   const cell1 = row.insertCell();
-  //   const cell2 = row.insertCell();
-  //   const cell3 = row.insertCell();
-  //   const cell4 = row.insertCell();
-  //   cell1.textContent = "Location Id";
-  //   cell2.textContent = "Name";
-  //   cell3.textContent = "Address";
-  //   cell4.textContent = "URL";
+  tableBody.innerHTML = "";
 });
