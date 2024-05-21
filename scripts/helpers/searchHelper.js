@@ -31,7 +31,8 @@ function findByState(
   location.addEventListener("change", (event) => {
     const targetedValue = event.target.value;
     const result = searchData(nationalParksArray, targetedValue, "location");
-    displayState(result, headerRow, tableBody);
+    // figure out why
+    displayState(result, headerRow);
   });
 }
 function findByType(
@@ -42,14 +43,14 @@ function findByType(
   tableBody
 ) {
   parkTypesArray.unshift("select by park type");
-  let result;
+
   showDropdown(parkType, parkTypesArray);
   parkType.addEventListener("change", (event) => {
     const targetedValue = event.target.value;
-    result = searchData(nationalParksArray, targetedValue, "byType");
-    displayState(result, headerRow, tableBody);
+    const result = searchData(nationalParksArray, targetedValue, "byType");
+    // figure out why
+    displayState(result, tableBody);
   });
-  return result;
 }
 
 export { searchData, findByState, findByType };

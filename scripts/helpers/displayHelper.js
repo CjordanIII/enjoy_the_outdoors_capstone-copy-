@@ -1,4 +1,5 @@
 function displayState(result, tableBody) {
+  tableBody.innerHTML = "";
   result.forEach((value) => {
     // Create a new table row
 
