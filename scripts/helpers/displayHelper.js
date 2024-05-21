@@ -14,8 +14,14 @@ function displayState(result, tableBody) {
     cell3.textContent = value.Address;
     const cell4 = document.createElement("td");
     const link = document.createElement("a");
-    link.href = value.URL;
-    link.textContent = "Link";
+    if (value.Visit) {
+      link.href = value.Visit;
+      link.textContent = `${value.Visit}`;
+      link.target = "_blank";
+    } else {
+      link.textContent = "N/A";
+    }
+
     cell4.appendChild(link);
 
     // Append cells to the row
