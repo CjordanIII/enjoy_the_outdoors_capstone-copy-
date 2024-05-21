@@ -2,13 +2,8 @@
 import { mountainsArray } from "./data/mountainData.js";
 import { showDropdown } from "./helpers/dropDownHelper.js";
 const dropDown = document.querySelector("#moutainDropDwon");
-/*
-    You can remove the following console.log() lines.
-    They are here to verify that we have access to the data
-    The data script files are located in the scripts/data directory
-*/
+
 const card = document.querySelector("#card");
-console.log(mountainsArray);
 
 mountainsArray.forEach((data) => {
   const option = document.createElement("option");
@@ -19,7 +14,7 @@ mountainsArray.forEach((data) => {
 
 dropDown.addEventListener("change", (e) => {
   const data = e.target.value;
-  console.log(data);
+
   const result = mountainsArray.filter((moredata) => moredata.name === data);
   card.innerHTML = `
   <div class="card " style="width: 18rem">
