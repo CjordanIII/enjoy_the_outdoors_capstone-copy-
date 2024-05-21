@@ -14,11 +14,13 @@ mountainsArray.forEach((data) => {
 
 dropDown.addEventListener("change", (e) => {
   const data = e.target.value;
-
+  console.log(data);
   const result = mountainsArray.filter((moredata) => moredata.name === data);
   card.innerHTML = `
   <div class="card " style="width: 18rem">
-    <img src="${result[0].img}" class="card-img-top" alt="..." />
+    <img src="${"../images/" + result[0].img}" class="card-img-top" alt="${
+    result[0].name
+  }" />
     <div class="card-body">
       <h5 class="card-title">${result[0].name}</h5>
       <p class="card-text">
