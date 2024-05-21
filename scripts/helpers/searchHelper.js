@@ -18,12 +18,20 @@ function searchData(nationalParksArray, targetedValue, searchType) {
   }
 }
 
-function findByState(locationsArray, nationalParksArray, location, headerRow) {
+function findByState(
+  locationsArray,
+  nationalParksArray,
+  location,
+  headerRow,
+  table
+) {
   // template logic for dropdown
   locationsArray.unshift("select by state");
   showDropdown(location, locationsArray);
   headerRow.innerHTML = "";
   location.addEventListener("change", (event) => {
+    table.classList.remove("d-none");
+    table.classList.add("d-show");
     const targetedValue = event.target.value;
     const result = searchData(nationalParksArray, targetedValue, "location");
     displayState(result, headerRow);
@@ -33,14 +41,16 @@ function findByType(
   parkTypesArray,
   nationalParksArray,
   parkType,
-
-  tableBody
+  tableBody,
+  table
 ) {
   parkTypesArray.unshift("select by park type");
 
   showDropdown(parkType, parkTypesArray);
 
   parkType.addEventListener("change", (event) => {
+    table.classList.remove("d-none");
+    table.classList.add("d-show");
     const targetedValue = event.target.value;
     const result = searchData(nationalParksArray, targetedValue, "byType");
     displayState(result, tableBody);
