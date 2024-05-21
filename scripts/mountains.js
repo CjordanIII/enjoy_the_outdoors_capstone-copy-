@@ -22,13 +22,13 @@ dropDown.addEventListener("change", (e) => {
   console.log(data);
   const result = mountainsArray.filter((moredata) => moredata.name === data);
   card.innerHTML = `
-        <div class="card " style="width: 18rem">
-              <img src="${result[0].img}" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">${result[0].name}</h5>
-                <p class="card-text">
-                 ${result[0].desc} </p>
-                </p>
-                <span class="card-text">Elevation:${result[0].elevation}</span>
-              </div>`;
+  <div class="card " style="width: 18rem">
+    <img src="${result[0].img}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">${result[0].name}</h5>
+      <p class="card-text">
+        ${result[0].desc} </p>
+      </p>
+      <span class="card-text">Elevation:${result[0].elevation}</span>
+    </div>`;
 });
