@@ -1,15 +1,5 @@
 "use strict";
-/* 
-!Search by priority page
-    -requirements:
-        user can search for national parks inside nationalParkData.js file
-        two ways to search for national parks radio btn:
-            -By Location
-                -select dropdown (locationData file):
-                    -state
-                    -territory
-            -By park type
- */
+
 // data files for national parks page
 import { locationsArray } from "./data/locationData.js";
 import { parkTypesArray } from "./data/parkTypeData.js";
