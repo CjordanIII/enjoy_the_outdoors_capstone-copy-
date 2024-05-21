@@ -35,56 +35,28 @@ headerCell1.textContent = "Location Id";
 headerCell2.textContent = "Name";
 headerCell3.textContent = "Address";
 headerCell4.textContent = "URL";
-const stateDataOne = findByState(
-  locationsArray,
-  nationalParksArray,
-  location,
-  tableBody
-);
+findByState(locationsArray, nationalParksArray, location, tableBody);
 
 // toggle between radio btns from location ===> type
 parkTypeInput.addEventListener("change", (e) => {
   const value = e.target.value;
-
+  tableBody.innerHTML = "";
   parkType.classList.remove("d-none");
   parkType.classList.add("d-block");
   location.classList.add("d-none");
   location.classList.remove("d-block");
-  let headerRow = table.insertRow(-1);
-  const headerCell1 = headerRow.insertCell(0);
-  const headerCell2 = headerRow.insertCell(1);
-  const headerCell3 = headerRow.insertCell(2);
-  const headerCell4 = headerRow.insertCell(3);
 
-  findByType(
-    parkTypesArray,
-    nationalParksArray,
-    parkType,
-    headerRow,
-    tableBody
-  );
-  tableBody.innerHTML = "";
+  findByType(parkTypesArray, nationalParksArray, parkType, tableBody);
 });
 // toggle between radio btns from type==>location
 locationInput.addEventListener("change", (e) => {
   const value = e.target.value;
-
+  tableBody.innerHTML = "";
   // Show location dropdown and hide parkType dropdown
   location.classList.remove("d-none");
   location.classList.add("d-block");
   parkType.classList.add("d-none");
   parkType.classList.remove("d-block");
-  let headerRow = table.insertRow(-1);
-  // const headerCell1 = headerRow.insertCell(0);
-  // const headerCell2 = headerRow.insertCell(1);
-  // const headerCell3 = headerRow.insertCell(2);
-  // const headerCell4 = headerRow.insertCell(3);
-  findByState(
-    locationsArray,
-    nationalParksArray,
-    location,
-    headerRow,
-    tableBody
-  );
-  tableBody.innerHTML = "";
+
+  findByState(locationsArray, nationalParksArray, location, tableBody);
 });

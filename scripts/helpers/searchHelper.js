@@ -18,20 +18,14 @@ function searchData(nationalParksArray, targetedValue, searchType) {
   }
 }
 
-function findByState(
-  locationsArray,
-  nationalParksArray,
-  location,
-  headerRow,
-  tableBody
-) {
+function findByState(locationsArray, nationalParksArray, location, headerRow) {
   // template logic for dropdown
   locationsArray.unshift("select by state");
   showDropdown(location, locationsArray);
+  headerRow.innerHTML = "";
   location.addEventListener("change", (event) => {
     const targetedValue = event.target.value;
     const result = searchData(nationalParksArray, targetedValue, "location");
-    // figure out why
     displayState(result, headerRow);
   });
 }
@@ -39,16 +33,16 @@ function findByType(
   parkTypesArray,
   nationalParksArray,
   parkType,
-  headerRow,
+
   tableBody
 ) {
   parkTypesArray.unshift("select by park type");
 
   showDropdown(parkType, parkTypesArray);
+
   parkType.addEventListener("change", (event) => {
     const targetedValue = event.target.value;
     const result = searchData(nationalParksArray, targetedValue, "byType");
-    // figure out why
     displayState(result, tableBody);
   });
 }
