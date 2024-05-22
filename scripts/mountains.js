@@ -18,7 +18,7 @@ dropDown.addEventListener("change", (e) => {
   const result = mountainsArray.filter((moredata) => moredata.name === data);
   card.innerHTML = `
   <div class="card " style="width: 18rem">
-    <img src="${"../images/" + result[0].img}" class="card-img-top" alt="${
+    <img src="${`../images/${result[0].img}`}" class="card-img-top" alt="${
     result[0].name
   }" />
     <div class="card-body">
