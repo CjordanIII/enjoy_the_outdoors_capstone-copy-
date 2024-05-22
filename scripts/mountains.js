@@ -26,6 +26,11 @@ dropDown.addEventListener("change", (e) => {
       <p class="card-text">
         ${result[0].desc} </p>
       </p>
-      <span class="card-text">Elevation:${result[0].elevation}</span>
+      <p class="card-text">Elevation:${result[0].elevation}</p>
+      <p class="card-text">Effort: ${result[0].effort}</p>
+      <p class="card-text">coords (est): lat ${result[0].coords.lat.toFixed(
+        2
+      )} lng: ${result[0].coords.lng.toFixed(2)}</p>
+      
     </div>`;
 });
