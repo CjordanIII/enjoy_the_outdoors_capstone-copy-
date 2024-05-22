@@ -6,6 +6,7 @@ function displayState(result, tableBody) {
     const row = document.createElement("tr");
 
     // Create and populate table cells
+    const tr = document.createElement("tr");
     const cell1 = document.createElement("td");
     cell1.textContent = value.LocationID;
     const cell2 = document.createElement("td");
@@ -32,6 +33,7 @@ function displayState(result, tableBody) {
     row.appendChild(cellst);
     row.appendChild(cell3);
     row.appendChild(cell4);
+    tr.appendChild(row);
 
     // Append the row to the table body
     tableBody.appendChild(row);
