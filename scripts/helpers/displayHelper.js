@@ -10,6 +10,8 @@ function displayState(result, tableBody) {
     cell1.textContent = value.LocationID;
     const cell2 = document.createElement("td");
     cell2.textContent = value.LocationName;
+    const cellst = document.createElement("td");
+    cellst.textContent = value.State;
     const cell3 = document.createElement("td");
     cell3.textContent = value.Address;
     const cell4 = document.createElement("td");
@@ -27,6 +29,7 @@ function displayState(result, tableBody) {
     // Append cells to the row
     row.appendChild(cell1);
     row.appendChild(cell2);
+    row.appendChild(cellst);
     row.appendChild(cell3);
     row.appendChild(cell4);
 

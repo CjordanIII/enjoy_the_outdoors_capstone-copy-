@@ -14,7 +14,7 @@ mountainsArray.forEach((data) => {
 
 dropDown.addEventListener("change", (e) => {
   const data = e.target.value;
-  console.log(data);
+
   const result = mountainsArray.filter((moredata) => moredata.name === data);
   card.innerHTML = `
   <div class="card " style="width: 18rem">
