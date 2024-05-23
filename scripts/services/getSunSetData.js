@@ -4,7 +4,8 @@ async function getSunsetForMountain(lat, lng) {
       `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`
     );
     let data = await response.json();
-    data = data.results.sunrise;
+    data = { sunrise: data.results.sunrise, sunset: data.results.sunset };
+    console.log(data);
     return data;
   } catch (error) {
     throw error;

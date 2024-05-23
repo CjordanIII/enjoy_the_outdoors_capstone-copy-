@@ -46,7 +46,8 @@ async function fetchData(result, lat, lng) {
       <p class="card-text">coords (est): lat ${result[0].coords.lat.toFixed(
         2
       )} lng: ${result[0].coords.lng.toFixed(2)}</p>
-      <p>sunset: ${data ? data : "waiting for data"}</p>
+      <p>sunrise: ${data ? data.sunrise : "waiting for data"}</p>
+      <p>sunset: ${data ? data.sunset : "waiting for data"}</p>
 
     </div>`;
   } catch (e) {
