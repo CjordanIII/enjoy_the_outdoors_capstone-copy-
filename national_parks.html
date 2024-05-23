@@ -79,9 +79,19 @@
           />
           <label class="form-check-label" for="searchBy"> By Park type </label>
         </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="searchBy"
+            id="showAll"
+            value="showAll"
+          />
+          <label class="form-check-label" for="searchBy"> Show All</label>
+        </div>
       </div>
       <!-- drop downs -->
-      <div>
+      <div class="d-none" id="dropdownContainer">
         <div id="byLocation" class="d-flex justify-content-center">
           <select
             class="form-select w-50 text-center"

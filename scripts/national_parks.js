@@ -4,7 +4,7 @@
 import { locationsArray } from "./data/locationData.js";
 import { parkTypesArray } from "./data/parkTypeData.js";
 import { nationalParksArray } from "./data/nationalParkData.js";
-
+import { displayState } from "./helpers/displayHelper.js";
 import { searchData, findByState, findByType } from "./helpers/searchHelper.js";
 
 // locatoin or type radio btn logic
@@ -14,6 +14,8 @@ const parkTypeInput = document.querySelector("#parkType");
 const locationInput = document.querySelector("#location");
 const table = document.querySelector("#resultsTitle");
 const tableBody = document.querySelector("#resultsBody");
+const showAll = document.querySelector("#showAll");
+const dropdownContainer = document.querySelector("#dropdownContainer");
 //insatiate
 
 let headerRow = table.insertRow(-1);
@@ -28,6 +30,8 @@ headerCellst.textContent = "State";
 headerCell3.textContent = "Address";
 headerCell4.textContent = "URL";
 table.classList.add("d-none");
+dropdownContainer.classList.remove("d-none");
+dropdownContainer.classList.add("d-show");
 findByState(locationsArray, nationalParksArray, location, tableBody, table);
 
 // toggle between radio btns from location ===> type
@@ -41,6 +45,8 @@ parkTypeInput.addEventListener("change", (e) => {
   parkType.classList.add("d-block");
   location.classList.add("d-none");
   location.classList.remove("d-block");
+  dropdownContainer.classList.add("d-show");
+  dropdownContainer.classList.remove("d-none");
 
   findByType(parkTypesArray, nationalParksArray, parkType, tableBody, table);
 });
@@ -56,6 +62,22 @@ locationInput.addEventListener("change", (e) => {
   location.classList.add("d-block");
   parkType.classList.add("d-none");
   parkType.classList.remove("d-block");
-
+  dropdownContainer.classList.add("d-show");
+  dropdownContainer.classList.remove("d-none");
   findByState(locationsArray, nationalParksArray, location, tableBody, table);
+});
+
+showAll.addEventListener("change", (e) => {
+  table.classList.add("d-none");
+  table.classList.remove("d-show");
+  tableBody.innerHTML = "";
+  // Show location dropdown and hide parkType dropdown
+  location.classList.remove("d-none");
+  location.classList.add("d-block");
+  parkType.classList.add("d-none");
+  parkType.classList.remove("d-block");
+  dropdownContainer.classList.remove("d-show");
+  dropdownContainer.classList.add("d-none");
+  // creates table
+  displayState(nationalParksArray, tableBody);
 });

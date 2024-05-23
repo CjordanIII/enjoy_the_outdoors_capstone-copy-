@@ -1,6 +1,7 @@
 function displayState(result, tableBody) {
   // clears out table before (avoids repeated append)
   tableBody.innerHTML = "";
+  console.log(result);
   result.forEach((value) => {
     // Create a new table row
 
@@ -9,13 +10,32 @@ function displayState(result, tableBody) {
     // Create and populate table cells
     const tr = document.createElement("tr");
     const cell1 = document.createElement("td");
-    cell1.textContent = value.LocationID;
+    if (value.LocationID) {
+      cell1.textContent = value.LocationID;
+    } else {
+      cell1.textContent = "N/A";
+    }
     const cell2 = document.createElement("td");
-    cell2.textContent = value.LocationName;
+
+    if (value.LocationName) {
+      cell2.textContent = value.LocationName;
+    } else {
+      cell2.textContent = "N/A";
+    }
     const cellst = document.createElement("td");
-    cellst.textContent = value.State;
+
+    if (value.State) {
+      cellst.textContent = value.State;
+    } else {
+      cellst.textContent = "N/A";
+    }
     const cell3 = document.createElement("td");
-    cell3.textContent = value.Address;
+
+    if (value.Address) {
+      cell3.textContent = value.Address;
+    } else {
+      cell3.textContent = "N/A";
+    }
     const cell4 = document.createElement("td");
     const link = document.createElement("a");
     // checks for link
