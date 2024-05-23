@@ -1,4 +1,5 @@
 function displayState(result, tableBody) {
+  // clears out table before (avoids repeated append)
   tableBody.innerHTML = "";
   result.forEach((value) => {
     // Create a new table row
@@ -17,6 +18,7 @@ function displayState(result, tableBody) {
     cell3.textContent = value.Address;
     const cell4 = document.createElement("td");
     const link = document.createElement("a");
+    // checks for link
     if (value.Visit) {
       link.href = value.Visit;
       link.textContent = `${value.Visit}`;
@@ -24,7 +26,7 @@ function displayState(result, tableBody) {
     } else {
       link.textContent = "N/A";
     }
-
+    // add data to html
     cell4.appendChild(link);
 
     // Append cells to the row

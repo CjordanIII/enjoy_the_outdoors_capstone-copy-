@@ -1,4 +1,5 @@
 function showDropdown(element, arr) {
+  // drop down crater
   arr.forEach((item) => {
     const option = document.createElement("option");
     option.textContent = item;
