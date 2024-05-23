@@ -20,6 +20,11 @@ Check out the live demo of the project [here](https://give-me-a-good-grade-plz-c
 - **Dropdown Selection:** Users can select a mountain from a dropdown list of 48 mountains.
 - **Mountain Details:** Displays the mountain name, description, elevation, and other interesting information.
 
+## Stretch Goals Implemented
+
+- Display images of the mountains along with their details.
+- Convert and display sunrise and sunset times in the local time zone.
+
 ## Installation
 
 To run this project locally:
