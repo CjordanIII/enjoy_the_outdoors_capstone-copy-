@@ -70,8 +70,9 @@ locationInput.addEventListener("change", (e) => {
 });
 
 showAll.addEventListener("change", (e) => {
-  table.classList.add("d-none");
-  table.classList.remove("d-show");
+  // ====================
+  table.classList.add("d-show");
+  table.classList.remove("d-none");
   tableBody.innerHTML = "";
   // Show location dropdown and hide parkType dropdown
   location.classList.remove("d-none");
