@@ -22,6 +22,14 @@ function displayState(result, tableBody) {
     } else {
       cell2.textContent = "N/A";
     }
+    const cellPhone = document.createElement("td");
+    if (value.Phone || value.Fax) {
+      cellPhone.textContent = `Phone: ${
+        value.Phone ? value.Phone : "N/A"
+      } Fax: ${value.Fax ? value.Fax : "N/A"}`;
+    } else {
+      cellPhone.textContent = "N/A";
+    }
     const cellst = document.createElement("td");
 
     if (value.State) {
@@ -52,6 +60,7 @@ function displayState(result, tableBody) {
     // Append cells to the row
     row.appendChild(cell1);
     row.appendChild(cell2);
+    row.appendChild(cellPhone);
     row.appendChild(cellst);
     row.appendChild(cell3);
     row.appendChild(cell4);
