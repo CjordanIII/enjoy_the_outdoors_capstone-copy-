@@ -5,6 +5,8 @@ const dropDown = document.querySelector("#moutainDropDwon");
 
 const card = document.querySelector("#card");
 
+mountainsArray.unshift({ name: "Select a mountain" });
+
 mountainsArray.forEach((data) => {
   const option = document.createElement("option");
   option.innerText = data.name;
