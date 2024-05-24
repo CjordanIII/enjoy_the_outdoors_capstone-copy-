@@ -1,6 +1,5 @@
 "use strict";
 import { mountainsArray } from "./data/mountainData.js";
-import { showDropdown } from "./helpers/dropDownHelper.js";
 import { getSunsetForMountain } from "./services/getSunSetData.js";
 // grabbing dom elements
 const dropDown = document.querySelector("#moutainDropDwon");
@@ -53,7 +52,7 @@ async function fetchData(result, lat, lng) {
   } catch (e) {
     card.innerHTML = `
   <div >
-    <h1 class="text-danger">${e}</h1>
+    <h1 class="text-danger">Something went wrong</h1>
     </div>`;
   }
 }
